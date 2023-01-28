@@ -385,7 +385,7 @@ div.sheet-personal-data span {
     font-size: 1.1em;
     margin-top: 3px;
 }
-div.sheet-personal-data span.sheet-axioms {
+div.sheet-personal-data span.sheet-special {
     padding-right: 5px;
 }
 div.sheet-personal-data input.sheet-charname {
@@ -395,7 +395,7 @@ div.sheet-personal-data .sheet-race {
     grid-column-start: 2;
     grid-column-end: span 4;
 }
-div.sheet-personal-data .sheet-cosm {
+div.sheet-personal-data .sheet-subrace {
     grid-column-start: 7;
     grid-column-end: span 4;
 }
@@ -403,11 +403,11 @@ div.sheet-personal-data .sheet-charname {
     grid-column-start: 2;
     grid-column-end: span 9;
 }
-div.sheet-personal-data .sheet-clearance {
+div.sheet-personal-data .sheet-unlife-corruption {
     grid-column-start: 10;
     grid-column-end: span 2;
 }
-div.sheet-personal-data div.sheet-possibilities {
+div.sheet-personal-data div.sheet-fates {
     grid-column-start: 1;
     grid-column-end: span 10;
     grid-row-start: 4;
@@ -686,7 +686,7 @@ div.sheet-grid-contents {
 }
 div.sheet-grid-contents h3,
 div.sheet-defenses div.sheet-grid-contents hr,
-div.sheet-possibilities button[type=action].sheet-possibilities-toggle,
+div.sheet-fates button[type=action].sheet-fates-toggle,
 div.sheet-settings span.sheet-head {
     grid-column: 1 / -1; 
 }
@@ -1044,18 +1044,18 @@ div.sheet-weapons-edit span.sheet-title.sheet-wide {
 div.sheet-weapons-edit span.sheet-title.sheet-narrow {
     width: 45px;
 }
-div.sheet-weapons-edit div.sheet-axiom select {
+/*div.sheet-weapons-edit div.sheet-axiom select {
     width: auto;
     font-size: 10px;
 }
-div.sheet-weapons-edit div.sheet-axiom,
+div.sheet-weapons-edit div.sheet-axiom,*/
 div.sheet-weapons-edit div.sheet-difficulty,
 div.sheet-weapons-edit div.sheet-damage {
     display: grid;
 }
-div.sheet-weapons-edit div.sheet-axiom {
+/*div.sheet-weapons-edit div.sheet-axiom {
     grid-template-columns: 50px 20px 50px 20px ;
-}
+}*/
 div.sheet-weapons-edit div.sheet-difficulty {
     grid-template-columns: 70px 25px ;
 }
@@ -1348,7 +1348,7 @@ div.sheet-skills select {
 
 /* skills toggle */
 button[type=action].sheet-skills-toggle,
-button[type=action].sheet-possibilities-toggle {
+button[type=action].sheet-fates-toggle {
     background-color: black;
     padding: 0;
     border: 0;
@@ -1365,15 +1365,15 @@ button[type=action].sheet-invisibutton {
     text-align: center;
 }
 button[type=action].sheet-skills-toggle span,
-button[type=action].sheet-possibilities-toggle span,
+button[type=action].sheet-fates-toggle span,
 button[type=action].sheet-invisibutton span {
     padding: 0;
 }
-button[type=action].sheet-possibilities span.sheet-head {
+button[type=action].sheet-fates span.sheet-head {
     margin-top: 3px; 
 }
 div.sheet-grid div.sheet-skill,
-div.sheet-possibilities-selection,
+div.sheet-fates-selection,
 div.sheet-derived-selection {
     display: none;
     position: absolute;
@@ -1392,17 +1392,17 @@ div.sheet-derived-selection hr {
     padding-left: 5px;
     padding-right: 5px;
 }
-div.sheet-possibilities-selection {
+div.sheet-fates-selection {
     top: 270px;
     left: 759px;
 }
-.charsheet div.sheet-possibilities-selection input[type=number] {
+.charsheet div.sheet-fates-selection input[type=number] {
     width: auto;
     height: 16px;
     border: 0;
     border-bottom: 1px solid black;
 }
-input[value="1"].sheet-possibilities-toggle ~ div.sheet-possibilities-selection {
+input[value="1"].sheet-fates-toggle ~ div.sheet-fates-selection {
     display: grid;
     grid-template-columns: 75px 25px;
     
@@ -1411,7 +1411,7 @@ input[value="1"].sheet-invisibutton ~ div.sheet-derived-selection {
     display: grid;
     grid-template-columns: 70px 25px;
 }
-div.sheet-possibilities-selection .sheet-head,
+div.sheet-fates-selection .sheet-head,
 div.sheet-derived-selection .sheet-head {
     grid-column: 1 / -1;
 }
@@ -1419,44 +1419,83 @@ div.sheet-derived-selection .sheet-head {
     margin-top: 2px;
     vertical-align: top;
 }
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-acrobatics,
 input.sheet-skills-airvehicles[value="1"] ~ div.sheet-airvehicles,
 input.sheet-skills-alteration[value="1"] ~ div.sheet-alteration,
 input.sheet-skills-apportation[value="1"] ~ div.sheet-apportation,
+input.sheet-skills-language[value="1"] ~ div.sheet-arcane,
+input.sheet-skills-language[value="1"] ~ div.sheet-arcaneknowledge,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-artist,
 input.sheet-skills-beastriding[value="1"] ~ div.sheet-beastriding,
-input.sheet-skills-computers[value="1"] ~ div.sheet-computers,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-business,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-camouflage,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-charm,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-craftman,
+input.sheet-skills-computers[value="1"] ~ div.sheet-climbing,
 input.sheet-skills-conjuration[value="1"] ~ div.sheet-conjuration,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-corruption,
 input.sheet-skills-custom[value="1"] ~ div.sheet-custom,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-dance,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-demolitions,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-directionsense,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-disguise,
 input.sheet-skills-divination[value="1"] ~ div.sheet-divination,
 input.sheet-skills-dodge[value="1"] ~ div.sheet-dodge,
 input.sheet-skills-energyweapons[value="1"] ~ div.sheet-energyweapons,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-escapeartist,
 input.sheet-skills-evidenceanalysis[value="1"] ~ div.sheet-evidenceanalysis,
 input.sheet-skills-faith[value="1"] ~ div.sheet-faith,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-faterip,
+input.sheet-skills-airvehicles[value="1"] ~ div.sheet-fatesense,
 input.sheet-skills-find[value="1"] ~ div.sheet-find,
-input.sheet-skills-firecombat[value="1"] ~ div.sheet-firecombat,
 input.sheet-skills-firstaid[value="1"] ~ div.sheet-firstaid,
-input.sheet-skills-heavyweapons[value="1"] ~ div.sheet-heavyweapons,
+input.sheet-skills-firecombat[value="1"] ~ div.sheet-flight,
+input.sheet-skills-firecombat[value="1"] ~ div.sheet-focus,
+input.sheet-skills-firecombat[value="1"] ~ div.sheet-forgery,
+input.sheet-skills-firecombat[value="1"] ~ div.sheet-frenzy,
+input.sheet-skills-language[value="1"] ~ div.sheet-honor,
+input.sheet-skills-heavyweapons[value="1"] ~ div.sheet-gambling,
+input.sheet-skills-firecombat[value="1"] ~ div.sheet-hypnotism,
 input.sheet-skills-intimidation[value="1"] ~ div.sheet-intimidation,
-input.sheet-skills-kinesis[value="1"] ~ div.sheet-kinesis,
 input.sheet-skills-landvehicles[value="1"] ~ div.sheet-landvehicles,
 input.sheet-skills-language[value="1"] ~ div.sheet-language,
+input.sheet-skills-kinesis[value="1"] ~ div.sheet-lifting,
+input.sheet-skills-language[value="1"] ~ div.sheet-linguistics,
 input.sheet-skills-lockpicking[value="1"] ~ div.sheet-lockpicking,
+input.sheet-skills-kinesis[value="1"] ~ div.sheet-longjumping,
 input.sheet-skills-maneuver[value="1"] ~ div.sheet-maneuver,
+input.sheet-skills-language[value="1"] ~ div.sheet-martialarts,
 input.sheet-skills-medicine[value="1"] ~ div.sheet-medicine,
+input.sheet-skills-language[value="1"] ~ div.sheet-meditation,
 input.sheet-skills-meleeweapons[value="1"] ~ div.sheet-meleeweapons,
+input.sheet-skills-language[value="1"] ~ div.sheet-mindsense,
 input.sheet-skills-missileweapons[value="1"] ~ div.sheet-missileweapons,
 input.sheet-skills-persuasion[value="1"] ~ div.sheet-persuasion,
-input.sheet-skills-precognition[value="1"] ~ div.sheet-precognition,
-input.sheet-skills-profession[value="1"] ~ div.sheet-profession,
-input.sheet-skills-reality[value="1"] ~ div.sheet-reality,
+input.sheet-skills-precognition[value="1"] ~ div.sheet-performanceart,
+input.sheet-skills-language[value="1"] ~ div.sheet-prestidigitation,
+input.sheet-skills-language[value="1"] ~ div.sheet-psionicmanipulation,
+input.sheet-skills-profession[value="1"] ~ div.sheet-psionicresistance,
+input.sheet-skills-reality[value="1"] ~ div.sheet-research,
+input.sheet-skills-language[value="1"] ~ div.sheet-resistpain,
+input.sheet-skills-language[value="1"] ~ div.sheet-running,
 input.sheet-skills-scholar[value="1"] ~ div.sheet-scholar,
 input.sheet-skills-science[value="1"] ~ div.sheet-science,
+input.sheet-skills-language[value="1"] ~ div.sheet-security,
+input.sheet-skills-language[value="1"] ~ div.sheet-shapeshifting,
+input.sheet-skills-language[value="1"] ~ div.sheet-siegeweapons,
+input.sheet-skills-language[value="1"] ~ div.sheet-spiritmedium,
 input.sheet-skills-stealth[value="1"] ~ div.sheet-stealth,
 input.sheet-skills-streetwise[value="1"] ~ div.sheet-streetwise,
 input.sheet-skills-survival[value="1"] ~ div.sheet-survival,
+input.sheet-skills-language[value="1"] ~ div.sheet-swami,
+input.sheet-skills-language[value="1"] ~ div.sheet-swimming,
 input.sheet-skills-taunt[value="1"] ~ div.sheet-taunt,
-input.sheet-skills-telepathy[value="1"] ~ div.sheet-telepathy,
+input.sheet-skills-telepathy[value="1"] ~ div.sheet-testofwills,
+input.sheet-skills-language[value="1"] ~ div.sheet-theoremknowledge,
 input.sheet-skills-tracking[value="1"] ~ div.sheet-tracking,
+input.sheet-skills-language[value="1"] ~ div.sheet-training,
 input.sheet-skills-trick[value="1"] ~ div.sheet-trick,
+input.sheet-skills-language[value="1"] ~ div.sheet-truesight,
 input.sheet-skills-unarmedcombat[value="1"] ~ div.sheet-unarmedcombat,
 input.sheet-skills-watervehicles[value="1"] ~ div.sheet-watervehicles,
 input.sheet-skills-willpower[value="1"] ~ div.sheet-willpower {
